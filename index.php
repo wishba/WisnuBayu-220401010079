@@ -22,7 +22,7 @@
   <button type="submit" name="submit">Save Journal</button>
 </form>
 
-<form action="includes/update.php" method="POST">
+<!-- <form action="includes/update.php" method="POST">
   <input type="text" name="id">
   <br>
   <textarea  name="subject" placeholder="title"></textarea>
@@ -30,7 +30,7 @@
   <textarea name="content" placeholder="content" rows="10"></textarea>
   <br>
   <button type="submit" name="submit">Update Journal</button>
-</form>
+</form> -->
 
 <!-- <form action="includes/delete.php" method="POST">
   <input type="text" name="id">
@@ -49,10 +49,20 @@
       echo "<h2>" . $row['subject'] . "</h2>";
       echo "<p>" . $row['content'] . "</p>";
 
+      echo "<form action='includes/update.php' method='POST'>";
+      echo "<input class='hide' type='text' name='id' value='" . htmlspecialchars($row['id']) . "'>";
+      echo "<textarea  name='subject' placeholder='title'>" . htmlspecialchars($row['subject']) . "</textarea>";
+      echo "<br>";
+      echo "<textarea name='content' placeholder='content' rows='10'>" . htmlspecialchars($row['content']) . "</textarea>";
+      echo "<br>";
+      echo "<button type='submit' name='submit'>Update Journal</button>";
+      echo "</form>";
+
       echo "<form action='includes/delete.php' method='POST'>";
       echo "<input class='hide' type='text' name='id' value='" . htmlspecialchars($row['id']) . "'>";
       echo "<button type='submit' name='submit'>Delete Journal</button>";
       echo "</form>";
+
       echo "<hr>";
       echo "</div>";
     }
