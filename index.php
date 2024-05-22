@@ -14,7 +14,6 @@
 <form action="includes/insert.php" method="POST">
   <input type="text" name="subject" placeholder="subject">
   <input type="text" name="content" placeholder="content">
-  <input type="text" name="date" placeholder="date">
   <button type="submit" name="submit">button</button>
 </form>
 
@@ -26,6 +25,7 @@
   if ($resultCheck > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
       echo $row['subject'] . "<br>";
+      echo $row['content'] . "<br>";
     }
   }
 
