@@ -32,10 +32,10 @@
   <button type="submit" name="submit">Update Journal</button>
 </form>
 
-<form action="includes/delete.php" method="POST">
+<!-- <form action="includes/delete.php" method="POST">
   <input type="text" name="id">
   <button type="submit" name="submit">Delete Journal</button>
-</form>
+</form> -->
 
 <?php 
   $sql = "SELECT * FROM posts ORDER BY id DESC;";
@@ -48,6 +48,11 @@
       echo "<h2>" . $row['id'] . "</h2>";
       echo "<h2>" . $row['subject'] . "</h2>";
       echo "<p>" . $row['content'] . "</p>";
+
+      echo "<form action='includes/delete.php' method='POST'>";
+      echo "<input class='hide' type='text' name='id' value='" . htmlspecialchars($row['id']) . "'>";
+      echo "<button type='submit' name='submit'>Delete Journal</button>";
+      echo "</form>";
       echo "<hr>";
       echo "</div>";
     }
