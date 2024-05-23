@@ -1,5 +1,3 @@
-# Personal Journal App
-
 ![screenshot](/Screenshot%202024-05-23%20at%2011-58-49%20Document.png)
 
 ## Cara menjalankan program secara local
