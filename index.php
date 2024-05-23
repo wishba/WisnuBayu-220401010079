@@ -31,32 +31,39 @@
 
   if ($resultCheck > 0) {
     while ($row = mysqli_fetch_assoc($result)) {
-      echo "<div>";
+      $id = htmlspecialchars($row['id']);
+      $subject = htmlspecialchars($row['subject']);
+      $content = htmlspecialchars($row['content']);
 
-      echo "<div id='read-" . $row['id'] . "'>";
-      echo "<h2>" . $row['subject'] . "</h2>";
-      echo "<p>" . $row['content'] . "</p>";
-      echo "<button onclick='showUpdate(" . $row['id'] . ")'>update</button>";
-      echo "<form action='includes/delete.php' method='POST'>";
-      echo "<input class='hide' type='text' name='id' value='" . htmlspecialchars($row['id']) . "'>";
-      echo "<button type='submit' name='submit'>Delete</button>";
-      echo "</form>";
-      echo "</div>";
+      echo <<<HTML
+        <div>
 
-      echo "<div class='hide' id='update-" . $row['id'] . "'>";
-      echo "<form action='includes/update.php' method='POST'>";
-      echo "<input class='hide' type='text' name='id' value='" . htmlspecialchars($row['id']) . "'>";
-      echo "<textarea  name='subject' placeholder='title'>" . htmlspecialchars($row['subject']) . "</textarea>";
-      echo "<br>";
-      echo "<textarea name='content' placeholder='content' rows='10'>" . htmlspecialchars($row['content']) . "</textarea>";
-      echo "<br>";
-      echo "<button type='submit' name='submit'>Update</button>";
-      echo "</form>";
-      echo "<button onclick='hideUpdate(" . $row['id'] . ")'>cancel</button>";
-      echo "</div>";
+          <div id="read-$id">
+            <h2>$subject</h2>
+            <p>$content</p>
+            <button onclick="showUpdate($id)">update</button>
 
-      echo "<hr>";
-      echo "</div>";
+            <form action='includes/delete.php' method='POST'>
+              <input class='hide' type='text' name='id' value="$id">
+              <button type='submit' name='submit'>Delete</button>
+            </form>
+          </div>
+
+          <div class='hide' id="update-$id">
+            <form action='includes/update.php' method='POST'>
+              <input class='hide' type='text' name='id' value="$id">
+              <textarea  name='subject' placeholder='title'>$subject</textarea>
+              <br>
+              <textarea name='content' placeholder='content' rows='10'>$content</textarea>
+              <br>
+              <button type='submit' name='submit'>Update</button>
+            </form>
+            <button onclick="hideUpdate($id)">cancel</button>
+          </div>
+
+        <hr>
+        </div>
+      HTML;
     }
   }
 ?>
