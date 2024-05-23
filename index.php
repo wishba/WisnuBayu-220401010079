@@ -22,6 +22,7 @@
   <br>
   <button type="submit" name="submit">Save Journal</button>
 </form>
+<hr>
 
 <?php 
   $sql = "SELECT * FROM posts ORDER BY id DESC;";

@@ -4,7 +4,6 @@ CREATE TABLE posts (
     content varchar(1000) not null
 );
 
-
 -- create
 INSERT INTO posts (subject, content) 
 VALUES (
