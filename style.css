@@ -1,7 +1,11 @@
-textarea {
+.hide {
+  display: none;
+}
+
+button {
   width: 100%;
 }
 
-.hide {
-  display: none;
+.update-button {
+  margin-bottom: var(--pico-spacing);
 }
