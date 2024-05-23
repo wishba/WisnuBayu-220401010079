@@ -1,5 +1,7 @@
 # Personal Journal App
 
+![screenshot](/Screenshot%202024-05-23%20at%2011-58-49%20Document.png)
+
 ## Cara menjalankan program secara local
 
 1. pastikan sudah menginstal xampp atau software sejenis lalu download program dan tempatkan dalam htdocs folder
